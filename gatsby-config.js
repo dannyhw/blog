@@ -13,7 +13,7 @@ module.exports = {
     siteUrl: `https://dannyhwilliams.co.uk`,
     siteDescription: `Writing about react native, storybook and other technologies`,
     siteLanguage: `en`,
-    siteImage: `/banner.jpg`,
+    siteImage: `/banner.png`,
     author: `@Danny_H_W`,
   },
   plugins: [
