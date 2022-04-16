@@ -8,11 +8,11 @@ tags:
   - guide
 ---
 
-# Intro
+## Intro
 
-React Native storybook is setup in such a way that the decision is left to the user how it should be loaded. This gives you flexibility on how you do things, however I often get asked how to easily switch between running application code and Storybook. 
+React Native storybook is setup in such a way that the decision is left to the user how it should be loaded. This gives you flexibility on how you do things, however I often get asked how to easily switch between running application code and Storybook.
 
-## An alternative approach
+### An alternative approach
 
 For a while now I've been thinking about an easy way to do this by using metro directly.
 
@@ -28,7 +28,8 @@ react-native start --config ./.ondevice/metro.storybook.js
 
 This solution works with React Native cli I haven't worked out a solution for expo yet, but maybe someone can help me with that.
 
-# The setup
+## The setup
+
 I'll be working from the [react native storybook template](https://github.com/dannyhw/react-native-template-storybook) based on the react native typescript template. However your own setup should work too if you adjust it in the same way.
 
 To use it you can run
@@ -54,11 +55,12 @@ The files in `.ondevice` are related to React Native storybook and currently the
 
 What if you want to write an application here and run storybook separately, what do you do?
 
-You might just comment out the storybook import when you aren't using it, or you might add some kind of conditional to load storybook when an environment variable is set. 
+You might just comment out the storybook import when you aren't using it, or you might add some kind of conditional to load storybook when an environment variable is set.
 
 There is another way, you can actually use metro to do all the work for you.
 
-## Creating a second entry point
+### Creating a second entry point
+
 First I'm going to rename `.ondevice/Storybook.tsx` to `.ondevice/index.js` and replace the content with this:
 
 ```js
@@ -153,7 +155,7 @@ Now rename the prestart script to look like this:
 
 Now the update-stories script only runs when we need it (when running storybook).
 
-## Running storybook
+### Running storybook
 
 Whenever you want to run storybook you run `yarn storybook-metro` in one terminal followed by running `yarn ios` or `yarn android` in another terminal.
 
@@ -161,7 +163,7 @@ To go back to your app you can just stop storybook metro and run `yarn start` in
 
 Note that since only the bundle changes you won't need to rebuild the entire app.
 
-# Closing thoughts
+## Closing thoughts
 
 As you can see it's possible to separate your storybook code from your application code with just the built in behaviour of metro and React Native.
 
@@ -171,7 +173,7 @@ This setup could be the default for storybook however a solution is still needed
 
 In this guide I'm using the React Native Storybook v6 beta which is currently under development however you can follow a similar approach for v5.3 also.
 
-## Contact me
+### Contact me
 
 If you want to get in touch you can contact me on twitter or the storybook discord
 

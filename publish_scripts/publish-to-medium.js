@@ -1,19 +1,11 @@
 #!/usr/bin/env node
 const yargs = require("yargs/yargs");
 const { hideBin } = require("yargs/helpers");
-const { token } = require("./.env.json");
+const { token } = require("../.env.json");
 const { URL, URLSearchParams } = require("url");
 const fetch = require("node-fetch");
 
-class HTTPResponseError extends Error {
-  constructor(response, customMessage, ...args) {
-    super(
-      `${customMessage}: ${response.status} ${response.statusText}`,
-      ...args
-    );
-    this.response = response;
-  }
-}
+const { HTTPResponseError } = require("./shared.js");
 
 const headers = {
   Accept: "application/json",
